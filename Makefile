@@ -156,6 +156,12 @@ else ifeq ($(platform),retrofw)
   CPUFLAGS := -ffast-math -march=mips32 -mtune=mips32 -mhard-float -fexpensive-optimizations -frename-registers -fPIC
   COMMONFLAGS += -pthread
   STRIPCMD := /opt/retrofw-toolchain/usr/mipsel-RetroFW-linux-uclibc/bin/strip --strip-all
+else ifeq ($(platform),emscripten)
+  OUTNAME := dosbox_pure_libretro.bc
+  CXX     := em++
+  AR      := emar
+  COMMONFLAGS += -pthread
+  STATIC_LINKING := 1
 else ifneq ($(findstring Haiku,$(shell uname -s)),)
   OUTNAME := dosbox_pure_libretro.so
   LDFLAGS := -Wl,--gc-sections -fno-ident -lroot -lnetwork
