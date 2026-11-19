@@ -157,7 +157,7 @@ else ifeq ($(platform),retrofw)
   COMMONFLAGS += -pthread
   STRIPCMD := /opt/retrofw-toolchain/usr/mipsel-RetroFW-linux-uclibc/bin/strip --strip-all
 else ifeq ($(platform),emscripten)
-  OUTNAME := dosbox_pure_libretro.bc
+  OUTNAME := dosbox_pure_libretro_emscripten.bc
   CXX     := em++
   AR      := emar
   COMMONFLAGS += -pthread
